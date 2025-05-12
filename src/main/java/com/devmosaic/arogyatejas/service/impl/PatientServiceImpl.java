@@ -65,14 +65,6 @@ public class PatientServiceImpl implements PatientService {
 
     public ResponseEntity<?> getAvailableDoctors(String authHeader) {
         try {
-
-            if(authHeader==null) return ResponseEntity.status(401).body("Unauthorized");
-        String token = authHeader.startsWith("Bearer ") ? authHeader.substring(7) : authHeader;
-        Map<String, Object> claims = jwtUtil.extractAllClaims(token);
-
-        // Get userId from claims
-        Long userId = Long.parseLong(claims.get("userId").toString());
-
             List<Doctor> availableDoctors = doctorRepository.findAll();
 
             List<DoctorAvailabilityDto> response = availableDoctors.stream()
