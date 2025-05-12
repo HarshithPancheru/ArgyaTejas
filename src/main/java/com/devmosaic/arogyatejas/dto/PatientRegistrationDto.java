@@ -24,18 +24,9 @@ public class PatientRegistrationDto {
    regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}$",
    message = "Password must contain at least one digit, one lowercase, one uppercase letter, one special character, and be at least 8 characters long"
 ) String password;
-   private @NotNull(
-   message = "Date of birth is required"
-) LocalDate dob;
    private @NotBlank(
    message = "Email is required"
 ) @Email(
    message = "Invalid email format"
 ) String email;
-   private @NotBlank(
-   message = "Phone number is required"
-) String phone;
-   private @NotBlank(
-   message = "Gender is required"
-) String gender;
 }

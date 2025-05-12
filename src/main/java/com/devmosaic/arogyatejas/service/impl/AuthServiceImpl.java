@@ -40,10 +40,7 @@ public class AuthServiceImpl implements AuthService {
          Patient patient = new Patient();
          patient.setFirstName(dto.getFirstName());
          patient.setLastName(dto.getLastName());
-         patient.setDob(dto.getDob());
-         patient.setMobile(dto.getPhone());
          patient.setEmail(dto.getEmail());
-         patient.setGender(dto.getGender());
          patient.setPassword(this.passwordEncoder.encode(dto.getPassword()));
          Patient savedPatient = (Patient)this.patientRepository.save(patient);
          String token = this.jwtUtil.generateToken(savedPatient.getId(), "PATIENT");
@@ -58,11 +55,7 @@ public class AuthServiceImpl implements AuthService {
          Doctor doctor = new Doctor();
          doctor.setFirstName(dto.getFirstName());
          doctor.setLastName(dto.getLastName());
-         doctor.setDob(dto.getDob());
-         doctor.setMobile(dto.getPhone());
          doctor.setEmail(dto.getEmail());
-         doctor.setGender(dto.getGender());
-         doctor.setAddress(dto.getAddress());
          doctor.setExperience(dto.getExperience());
          doctor.setSpeciality(dto.getSpecialization());
          doctor.setPassword(this.passwordEncoder.encode(dto.getPassword()));
